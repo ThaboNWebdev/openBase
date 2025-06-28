@@ -1,35 +1,53 @@
-# openBase
-Music player
-# 🎧 OpenBase Player – Frontend
+ 🎧 OpenBase Player
+OpenBase Player is a sleek, AI-powered music player web app built with HTML, CSS, and vanilla JavaScript. It connects seamlessly to a Django REST API to stream and display your favorite AI-generated tracks. Fast, responsive, and easy to customize — it's your gateway to discovering music in the new era.
 
-This is the frontend for **OpenBase**, ai music player web app designed to connect users to their favorite tracks with a simple, smooth experience. Built with HTML, CSS, and vanilla JavaScript, it communicates with a Django REST backend via API.
+✨ Features
+🎵 Real-time song loading from a Django REST backend
 
----
+📱 Fully responsive and mobile-friendly UI
 
-## 🚀 Features
+🧑‍🎤 Displays song title, artist, album, and release date
 
-- Responsive layout and clean design
-- Fetches real-time songs from a Django API
-- Displays song title, artist, album, and release date
-- Easy to integrate with any RESTful backend
+⚡ Lightweight and fast — pure HTML, CSS & JS
 
----
+🔌 Plug-and-play with any RESTful music API
 
-## 🔗 Live Demo
+🔗 Live Demo
+🌐 View on GitHub Pages
 
- (https://thabonwebdev.github.io/openBase/))
+🛠️ Tech Stack
+Frontend	Backend	Hosting
+HTML5, CSS3, JavaScript (Fetch API)	Django REST Framework	GitHub Pages
 
----
-
-## 🛠️ Tech Stack
-
-- HTML5 & CSS3
-- JavaScript (Fetch API)
-- Django REST Framework (backend)
-- Hosted on GitHub Pages
-
----
+🚧 Project Structure
+graphql
+Copy
+Edit
+openBase/
+├── index.html         # Main HTML file
+├── style.css          # Stylesheet for layout & design
+├── script.js          # JavaScript for API calls & interactivity
+📦 How to Use
+Clone the repo
 
  
+git clone https://github.com/thabonwebdev/openBase.git
+Connect to your Django backend
 
+Update the API endpoint in script.js with your Django REST API base URL.
 
+Open index.html in your browser
+
+That’s it! Your music player is live.
+
+🔮 Future Plans
+Audio playback support (stream songs directly)
+
+Add play/pause/next/prev controls
+
+Search & filter functionality
+
+AI song recommendations
+
+🧠 About
+This project is part of GEN MUZIK’s mission to redefine music discovery in the age of AI — where simplicity meets innovation.
