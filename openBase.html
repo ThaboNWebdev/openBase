@@ -1,0 +1,166 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenBase AI – Where AI Meets Rhythm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #fff;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background-color: #111;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #0ff;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #0ff;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .upload-btn {
+      margin-top: 2rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .feature {
+      background-color: #222;
+      padding: 1.5rem;
+      border-radius: 8px;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>OpenBase AI</h1>
+    <nav>
+      <a href="admin-app/admin.html">Upload</a>
+      <a href="player-app/index.html">Explore</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Where AI Meets Rhythm</h2>
+    <p>OpenBase AI is the platform for creators blending artificial intelligence with music. Upload, share, and discover the future of sound.</p>
+    <button onclick="handleUpload()">Launch Your First Track</button>
+    <div class="upload-btn">
+      <button onclick="handleUpload()">Upload via Admin App</button>
+    </div>
+
+    <div id="g_id_onload"
+         data-client_id="887744141848-r5t4avg0jv0q735sngf1uavv6d7cu4be.apps.googleusercontent.com"
+         data-callback="onSignIn">
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+    <button onclick="logout()">Log out</button>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>🎙️ Creator Uploads</h3>
+      <p>Share your AI-generated tracks and cover art with the world.</p>
+    </div>
+    <div class="feature">
+      <h3>🧠 AI Tools</h3>
+      <p>Integrate with music generators, lyric bots, and visualizers.</p>
+    </div>
+    <div class="feature">
+      <h3>🌍 Open Discovery</h3>
+      <p>Explore music by genre, mood, or AI model used.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 OpenBase AI · Powered by GEN MUZIK Creations
+  </footer>
+
+  <script>
+   function handleUpload() {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("Please sign in with Google first.");
+    return;
+  }
+  window.location.href = "admin-app/admin.html";
+}
+
+
+    function onSignIn(response) {
+      console.log("Google ID Token:", response.credential);
+      localStorage.setItem("authToken", response.credential);
+      alert("Signed in successfully with Google!");
+    }
+
+    function logout() {
+      localStorage.removeItem("authToken");
+      google.accounts.id.disableAutoSelect();
+      alert("You’ve been logged out.");
+      window.location.href = "openBase.html";
+    }
+  </script>
+
+</body>
+</html>

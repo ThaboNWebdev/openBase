@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenBase AI – Music Player</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      height: 60px;
+      vertical-align: middle;
+    }
+
+    header h1 {
+      display: inline-block;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-left: 1rem;
+      color: #0ff;
+    }
+
+    .track-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cover {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #0ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 0.5rem;
+    }
+
+    .download-icon {
+      font-size: 1.5rem;
+      color: #0ff;
+      text-decoration: none;
+    }
+
+    .nav-buttons button {
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #00cccc;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="Gen Muzik logo.png" alt="GEN MUZIK Logo">
+  <h1>OpenBase AI</h1>
+</header>
+
+<main>
+  <div class="track-title" id="trackTitle">Loading...</div>
+  <img src="" class="cover" id="albumCover" />
+  <div id="song-list"></div>
+
+  <div class="controls">
+    <audio controcodels id="audioPlayer"></audio>
+    <a class="download-icon" id="downloadLink" download title="Download Track">⬇️</a>
+  </div>
+  <div class="nav-buttons">
+    <button onclick="prevTrack()">⏮️ Prev</button>
+    <button onclick="nextTrack()">⏭️ Next</button>
+  </div>
+</main>
+
+<script>
+let songs = [];
+let currentIndex = 0;
+
+function loadTrack(index) {
+  if (songs.length === 0) return;
+  const song = songs[index];
+  document.getElementById('trackTitle').textContent = song.title;
+  document.getElementById('albumCover').src = song.cover;
+  const audio = document.getElementById('audioPlayer');
+  audio.src = song.file;
+  const downloadLink = document.getElementById('downloadLink');
+  downloadLink.href = song.file;
+  downloadLink.title = "Download " + song.title;
+}
+
+function nextTrack() {
+  currentIndex = (currentIndex + 1) % songs.length;
+  loadTrack(currentIndex);
+}
+
+function prevTrack() {
+  currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+  loadTrack(currentIndex);
+}
+
+fetch('songs.json')
+  .then(res => res.json())
+  .then(data => {
+    songs = data;
+    loadTrack(currentIndex);
+  });
+
+  
+  fetch('http://127.0.0.1:8000/songs/')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.createElement('div');
+      data.forEach(song => {
+        const card = document.createElement('div');
+        card.style.border = '1px solid #0ff';
+        card.style.margin = '1rem';
+        card.style.padding = '1rem';
+        card.innerHTML = `
+          <h3>${song.title}</h3>
+          <p>Artist: ${song.artist}</p>
+          <p>Album: ${song.album}</p>
+          <p>Released: ${song.release_date}</p>
+        `;
+        container.appendChild(card);
+      });
+      document.body.appendChild(container);
+    })
+    .catch(error => console.error('Error fetching songs:', error));
+
+
+</script>
+
+</body>
+</html>
