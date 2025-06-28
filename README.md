@@ -24,15 +24,12 @@ graphql
 Copy
 Edit
 openBase/
-├── index.html         # Main HTML file
-├── style.css          # Stylesheet for layout & design
-├── script.js          # JavaScript for API calls & interactivity
+├── index.html         # Main HTML file   # Stylesheet for layout & design     # JavaScript for API calls & interactivity
 📦 How to Use
 Clone the repo
 
  
-git clone https://github.com/thabonwebdev/openBase.git
-Connect to your Django backend
+live demo https://github.com/thabonwebdev/openBase.git
 
 Update the API endpoint in script.js with your Django REST API base URL.
 
