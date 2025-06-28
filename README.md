@@ -17,7 +17,7 @@ This is the frontend for **OpenBase**, ai music player web app designed to conne
 
 ## 🔗 Live Demo
 
-(https://thabonwebdev.github.io/player-app)
+ (https://thabonwebdev.github.io/openBase/))
 
 ---
 
