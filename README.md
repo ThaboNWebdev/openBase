@@ -48,3 +48,6 @@ AI song recommendations
 
 🧠 About
 This project is part of GEN MUZIK’s mission to redefine music discovery in the age of AI — where simplicity meets innovation.
+
+🙌 Acknowledgments
+Built by Thabo with a passion for creativity and code. Inspired by a vision of seamless music discovery.
