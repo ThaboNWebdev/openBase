@@ -92,7 +92,10 @@
 
   <div class="container">
     <h2>Upload New Track</h2>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+     <form id="uploadForm">
+      <label for="artist">Artist Name:</label>
+      <input type="text" name="artist" id="artist" required> 
+
       <label for="title">Track Title:</label>
       <input type="text" name="title" id="title" required>
 
@@ -105,6 +108,6 @@
       <button type="submit">Upload & Save</button>
     </form>
   </div>
-
+<script type="module" src="upload.js"></script>
 </body>
 </html>
