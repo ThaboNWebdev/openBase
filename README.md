@@ -29,7 +29,7 @@ openBase/
 Clone the repo
 
  
-live demo https://github.com/thabonwebdev/openBase.git
+ 
 
 Update the API endpoint in script.js with your Django REST API base URL.
 
