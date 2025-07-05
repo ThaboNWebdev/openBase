@@ -89,6 +89,22 @@
       background-color: #111;
       font-size: 0.9rem;
     }
+
+    .upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.upload-section p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #0ff;
+  text-align: center;
+}
+
   </style>
 </head>
 <body>
@@ -111,12 +127,11 @@
     <p>OpenBase AI is the platform for creators blending artificial intelligence with music. Upload, share, and discover the future of sound.</p>
     
    
-<p style="margin-top: 0.5rem; font-size: 0.9rem; color: #0ff;">
-  You’ll need to sign in with Google to upload your music.
-</p>
-   <div class="upload-btn">
-      <button onclick="handleUpload()">Upload via Admin App</button>
-    </div>
+ 
+   <div class="upload-section">
+  <button onclick="handleUpload()">Upload Your Track</button>
+  <p>You’ll need to sign in with Google to upload your music.</p>
+  </div>
 
     <div id="g_id_onload"
          data-client_id="887744141848-r5t4avg0jv0q735sngf1uavv6d7cu4be.apps.googleusercontent.com"
