@@ -95,12 +95,44 @@
   color: #0ff;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: inherit; 
+}
+
+.logo-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .logo-container img {
+      height: 60px;
+    }
+
+    .logo-container h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-left: 1rem;
+      color: #0ff;
+    }
+
+    #trackList {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 
 <header>
- <a href="../index.html" ><img src="Gen Muzik logo.png" alt="GEN MUZIK Logo"><h1 style="display:inline-block;">OpenBase AI</h1></a>
+  <a href="../index.html" class="logo-link">
+    <div class="logo-container">
+    <img src="Gen Muzik logo.png" alt="GEN MUZIK Logo">
+    <h1>OpenBase AI</h1></a>
+  </div>
+  </a>
   
 </header>
 
