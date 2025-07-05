@@ -75,3 +75,21 @@ form.addEventListener('submit', async (e) => {
     status.innerHTML = `<p>⚠️ Network error: ${error.message}</p>`;
   }
 });
+  import axios from "axios";
+
+const form = document.getElementById('uploadForm');
+const status = document.getElementById('status');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  try {
+    const response = await axios.post("https://openbase-backend.onrender.com/api/upload", formData);
+    const result = response.data;
+
+    status.innerHTML = `<p>✅ Upload successful!</p><audio controls src="${result.url}"></audio>`;
+  } catch (error) {
+    status.innerHTML = `<p>❌ Error: ${error.message}</p>`;
+  }
+});

@@ -191,6 +191,29 @@
   window.location.href = "admin-app/admin.html";
 }
 
+function handleUpload() {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    alert("🚫 Please sign in with Google first to upload.");
+    return;
+  }
+  window.location.href = "admin-app/admin.html";
+}
+  
+  window.onload = () => {
+    google.accounts.id.initialize({
+      client_id: "887744141848-r5t4avg0jv0q735sngf1uavv6d7cu4be.apps.googleusercontent.com",
+      callback: onSignIn
+    });
+
+    google.accounts.id.renderButton(
+      document.querySelector(".g_id_signin"),
+      { theme: "outline", size: "large" }
+    );
+
+    google.accounts.id.prompt(); // Optionally show one-tap
+  };
+
 
     function onSignIn(response) {
       console.log("Google ID Token:", response.credential);
@@ -205,26 +228,20 @@
       window.location.href = "openBase.html";
     }
 
-     
+    // hide button if not signed in
+     window.addEventListener("DOMContentLoaded", () => {
+  const uploadSection = document.querySelector(".upload-section");
+  const token = localStorage.getItem("authToken");
 
-   import axios from "axios";
-
-const form = document.getElementById('uploadForm');
-const status = document.getElementById('status');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const formData = new FormData(form);
-
-  try {
-    const response = await axios.post("https://openbase-backend.onrender.com/api/upload", formData);
-    const result = response.data;
-
-    status.innerHTML = `<p>✅ Upload successful!</p><audio controls src="${result.url}"></audio>`;
-  } catch (error) {
-    status.innerHTML = `<p>❌ Error: ${error.message}</p>`;
+  if (!token) {
+    uploadSection.style.opacity = "0.5";
+    uploadSection.querySelector("button").disabled = true;
+    uploadSection.querySelector("p").innerText = "Please sign in with Google to enable uploads.";
   }
 });
+
+
+ 
 
 </script>
 
