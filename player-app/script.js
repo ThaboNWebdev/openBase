@@ -69,3 +69,28 @@ function prevTrack() {
 }
 
 loadTracks();
+
+const trackItem = document.createElement("div");
+trackItem.classList.add("track");
+
+trackItem.innerHTML = `
+  <img src="${data.coverURL}" alt="Cover Art" width="200" style="cursor:pointer;" />
+  <h3>${data.title} – ${data.artist}</h3>
+  <audio controls src="${data.audioURL}"></audio>
+`;
+
+trackList.appendChild(trackItem);
+
+// 🔊 Make cover clickable to play
+const cover = trackItem.querySelector("img");
+cover.addEventListener("click", () => {
+  document.getElementById("trackTitle").textContent = data.title;
+  document.getElementById("albumCover").src = data.coverURL;
+  document.getElementById("audioPlayer").src = data.audioURL;
+  document.getElementById("downloadLink").href = data.audioURL;
+  document.getElementById("downloadLink").title = `Download ${data.title}`;
+});
+//latest upload
+if (index === 0) {
+  trackItem.innerHTML += `<p style="color:#0ff;">🆕 Latest Upload</p>`;
+}

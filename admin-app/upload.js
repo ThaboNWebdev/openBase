@@ -74,3 +74,13 @@ form.addEventListener("submit", async (e) => {
     status.innerHTML = `<p>❌ Error: ${error.message}</p>`;
   }
 });
+status.innerHTML = `<p>⏳ Uploading track...</p>`;
+
+// After successful upload:
+status.innerHTML = `
+  <p>✅ Track uploaded successfully!</p>
+  <h3>${title} – ${artist}</h3>
+  <audio controls src="${audioURL}"></audio>
+  <p><a href="../player-app/index.html" style="color:#0ff;">🎧 View it on the player</a></p>
+`;
+
